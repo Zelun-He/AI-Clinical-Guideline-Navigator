@@ -4,13 +4,13 @@ A full-stack Retrieval-Augmented Generation (RAG) application for guideline-grou
 
 ## Features
 
-- Upload clinical guideline PDFs.
-- Extract and chunk guideline text by page.
-- Generate embeddings and store vectors in Supabase pgvector.
-- Ask clinical questions and retrieve top matching chunks.
-- Generate grounded answers with citations `(Source, Page X)`.
-- View retrieved chunk context and similarity scores.
-- Hallucination guard that returns `Insufficient evidence in provided guideline.` if answer is unsupported.
+- Single-page, Google-style natural language search interface.
+- Light blue + white + wood visual theme.
+- Semantic retrieval pipeline (embedding-based vector search, not keyword matching).
+- Grounded answers generated only from retrieved guideline context.
+- Explicit citations in `(Source, Page X)` format.
+- Retrieval transparency panel with top chunk similarity scores.
+- Hallucination guard that returns `Insufficient evidence in provided guideline.` when unsupported.
 
 ## Tech Stack
 
@@ -32,8 +32,7 @@ backend/
 
 frontend/
   app/
-    upload/page.tsx
-    ask/page.tsx
+    page.tsx
   components/
   lib/
 ```
@@ -72,10 +71,7 @@ export NEXT_PUBLIC_API_URL="http://localhost:8000"
 npm run dev
 ```
 
-Open:
-
-- `http://localhost:3000/upload`
-- `http://localhost:3000/ask`
+Open `http://localhost:3000`.
 
 ## Disclaimer
 

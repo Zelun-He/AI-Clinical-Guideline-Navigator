@@ -8,19 +8,19 @@ export default function RetrievedChunksPanel({ chunks }: { chunks: RetrievedChun
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="rounded-lg border bg-white">
+    <section className="wood-card rounded-2xl border">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="w-full px-4 py-3 text-left font-semibold"
+        className="w-full px-5 py-4 text-left font-semibold"
       >
-        {isOpen ? "Hide" : "Show"} retrieved chunks ({chunks.length})
+        {isOpen ? "Hide" : "Show"} retrieved semantic chunks ({chunks.length})
       </button>
 
       {isOpen && (
-        <div className="space-y-3 border-t p-4">
+        <div className="space-y-3 border-t border-amber-200 p-4">
           {chunks.map((chunk, index) => (
-            <article key={`${chunk.source}-${chunk.page_number}-${index}`} className="rounded bg-slate-50 p-3 text-sm">
+            <article key={`${chunk.source}-${chunk.page_number}-${index}`} className="rounded-lg bg-white/80 p-3 text-sm">
               <p className="mb-2 font-medium">
                 {chunk.source}, Page {chunk.page_number} · Similarity: {(chunk.similarity * 100).toFixed(1)}%
               </p>
